@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GXFSettingViewController.h"
 
 @interface ViewController ()
 
@@ -19,6 +20,11 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (IBAction)settings:(id)sender {
+    
+    GXFSettingViewController *settingVc = [[GXFSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVc animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
