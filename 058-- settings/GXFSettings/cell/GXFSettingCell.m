@@ -34,8 +34,9 @@
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        // 设置子标题大小（这里的子标题没有使用UITableViewCellStyleValue1样式，而是自定义了subLabel，如果使用UITableViewCellStyleValue1样式，那种有子标题有子图片的情况就不好实现了）
-//        self.detailTextLabel.font = [UIFont systemFontOfSize:SubTitleFont];
+        // 带箭头有子标题情况，设置子标题大小（这里的子标题没有使用UITableViewCellStyleValue1样式，而是自定义了subLabel，如果使用UITableViewCellStyleValue1样式，那种有子标题有子图片的情况就不好实现了）
+        // 不带箭头有子标题才使用UITableViewCellStyleValue1样式的subTitle
+        self.detailTextLabel.font = [UIFont systemFontOfSize:SubTitleFont];
         
         // cell普通颜色
         UIView *normalColorView = [[UIView alloc] init];
@@ -70,7 +71,7 @@
     static NSString *ID = @"cellIdentifier";
     GXFSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[GXFSettingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[GXFSettingCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
     return cell;
 }
